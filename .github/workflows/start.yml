@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+env:
+  Environment: literally_an_envrionment_variable
+
+jobs:
+  Start:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Retrieve repository variable, env, secrets
+        run: |
+          echo environment='${{ env.ENVIRONMENT }}'
+          echo variable_repo='${{ vars.VARIABLEREPO }}'
+          echo variable='${{ vars.VARIABLE }}'
+          echo secret_repo='${{ secrets.SECRETREPO }}'
+          echo secret='${{ secrets.SECRET }}'
