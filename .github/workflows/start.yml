@@ -13,8 +13,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Retrieve repository variable, env, secrets
+        environment: secret
         run: |
-          echo environment='${{ env.ENVIRONMENT }}'
+          echo environment='${{ env.Environment }}'
           echo variable_repo='${{ vars.VARIABLEREPO }}'
           echo variable='${{ vars.VARIABLE }}'
           echo secret_repo='${{ secrets.SECRETREPO }}'
