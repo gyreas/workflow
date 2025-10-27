@@ -9,11 +9,11 @@ env:
 jobs:
   Start:
     runs-on: ubuntu-latest
+    environment: secret
     steps:
       - uses: actions/checkout@v4
 
       - name: Retrieve repository variable, env, secrets
-        environment: secret
         run: |
           echo environment='${{ env.Environment }}'
           echo variable_repo='${{ vars.VARIABLEREPO }}'
